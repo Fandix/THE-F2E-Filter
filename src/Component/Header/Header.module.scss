@@ -1,0 +1,57 @@
+//Header Wrap
+.wrap{
+    width: 100%;
+    height: 92px;
+    background-color: #7828B4;
+    //Header -> Box
+    .box{
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        //Header -> Box -> Home(Title)
+        .home{
+            a{
+                text-decoration: none;
+                font-size: 36px;
+                color: #fff;
+                font-weight: 550;
+            }
+        }
+        //Header -> Box -> Search Bar
+        .search{
+            width: 400px;
+            border-bottom: 1px solid #fff;
+            margin-left: 150px;
+            display: flex;
+            //Header -> Box -> Search Bar -> Icon
+            .searchIcon{
+                margin-right: 20px;
+                margin-bottom: 8.5px;
+                svg{
+                    width: 20px;
+                    height: 20px;
+                    color: #fff;
+                }
+            }
+            //Header -> Box -> Search Bar -> Input
+            .searchInput{
+                width: 100%;
+                margin-bottom: 8.5px;
+                input{
+                    width: 232px;
+                    border: none;
+                    background-color: transparent;
+                    font-size: 20px;
+                    color: rgba(255,255,255,0.50);
+                }
+                input:focus{
+                    outline: none;
+                }
+            }
+            
+            
+        }
+    }
+}
