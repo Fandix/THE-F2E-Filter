@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Component/Header/Header";
-import DataList from "./Component/DataList/DataList";
+import Main from "./Component/Main/Main"
 
 class App extends React.Component
 {
@@ -11,7 +11,7 @@ class App extends React.Component
                 {/* ---------- Header ----------- */}
                 <Header />
                 {/* --------- Data Area ---------- */}
-                <DataList />
+                <Main />
             </div>
         )
     }

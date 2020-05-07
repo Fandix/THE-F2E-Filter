@@ -6,6 +6,13 @@
         width: 90%;
         height: 100%;
         margin: 0 auto;
-       
+        display: flex;
+        .filter{
+            width: 300px;
+        }
+        .datalist{
+            width: calc(100% - 300px);
+            
+        }
     }
 }

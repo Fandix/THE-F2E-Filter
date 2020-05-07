@@ -18,11 +18,13 @@ class Filter extends React.Component
                     <div className={ style.box }>
                         <p>Location</p>
                         <select>
+                            <option>全部</option>
                             <option>三民區</option>
                             <option>大樹區</option>
                             <option>六龜區</option>
                             <option>仁武區</option>
                             <option>小港區</option>
+                            <option>內門區</option>
                         </select>
                     </div>
                 </div>
@@ -45,15 +47,28 @@ class Filter extends React.Component
                 {/******** Categories ********/}
                 <div className={ style.cate }>
                     <div className={ style.box }>
+                        <p>Categories</p>
                         <div className={ style.check }>
+                            {/*=======================*/}
                             <label>
                                 <input type="checkbox" id="checkbox" />
-                                <span></span>
-                                異國料理
+                                <span className={ style.checkbox }></span>
+                                All
                             </label>
+                            {/*=======================*/}
+                            <label>
+                                <input type="checkbox" id="checkbox" />
+                                <span className={ style.checkbox }></span>
+                                免費參觀
+                            </label>
+                            {/*=======================*/}
+                            <label>
+                                <input type="checkbox" id="checkbox" />
+                                <span className={ style.checkbox }></span>
+                                全天候開放
+                            </label>
+                            {/*=======================*/}
                         </div>
-                       
-                        
                     </div>
                 </div>
             </div>

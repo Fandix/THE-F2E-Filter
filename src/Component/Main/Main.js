@@ -1,15 +1,16 @@
 /*
     Date : 2020/05/06
-    Decription : DataList Component
+    Decription : Main Component
     Include : Filter,DataContnt,
     Author : Fandix Huang
 */
 
 import React from "react";
-import style from "./DataList.module.scss";
+import style from "./Main.module.scss";
 import Filter from "../Filter/Filter";
+import FilterBar from "../FilterBar/FilterBar"
 
-class DataList extends React.Component
+class Main extends React.Component
 {
     render()
     {
@@ -17,12 +18,17 @@ class DataList extends React.Component
             <div className={ style.wrap }>
                 <div className={ style.box }>
                     {/******* Filter ********/}
-                    <Filter />
+                    <div className={ style.filter }>
+                        <Filter />
+                    </div>
                     {/******* Data List ********/}
+                    <div className={ style.datalist }>
+                        <FilterBar />
+                    </div>
                 </div>
             </div>
         )
     }
 }
 
-export default DataList
+export default Main

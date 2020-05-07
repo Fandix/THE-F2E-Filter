@@ -18,6 +18,10 @@
                 font-size: 36px;
                 color: #fff;
                 font-weight: 550;
+                transition: .5s;
+            }
+            :hover{
+                color: 	#bbb;
             }
         }
         //Header -> Box -> Search Bar
@@ -50,9 +54,7 @@
                 input:focus{
                     outline: none;
                 }
-            }
-            
-            
+            } 
         }
     }
 }

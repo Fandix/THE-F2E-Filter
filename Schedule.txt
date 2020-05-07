@@ -1,0 +1,8 @@
+/*  
+    Date : 2020/05/07
+    Update : 
+        1. Finish Filter Static Component  
+        2. New FilterBar Static Component -> Finish
+        3. New Categories Static Component -> Finish
+        4. Change DataContent to Main (Component)
+*/
