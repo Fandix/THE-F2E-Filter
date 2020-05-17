@@ -6,3 +6,21 @@
         3. New Categories Static Component -> Finish
         4. Change DataContent to Main (Component)
 */
+
+//====================================================
+
+/*
+    Date : 2020/05/09
+    Update : 
+        1. Install Redux and Redux-React
+*/
+
+//====================================================
+
+/*
+    Date : 2020/05/17
+    Update : 
+        1. New Action Create -> CategoriesFilter Not Finish
+        2. New Reducers function
+        3. connect Filter.js and Store
+*/

@@ -15,7 +15,7 @@ const Categories = (props) => {
                 <p>{ props.value }</p>
                 <div className={ style.cancel }>
                     <input type="checkbox" id="cate"/>
-                    <label for="cate" className={ style.categ }></label>
+                    <label htmlFor="cate" className={ style.categ }></label>
                 </div>
             </div>
         </div>

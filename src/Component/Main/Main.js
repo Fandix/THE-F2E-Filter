@@ -9,6 +9,8 @@ import React from "react";
 import style from "./Main.module.scss";
 import Filter from "../Filter/Filter";
 import FilterBar from "../FilterBar/FilterBar"
+import { createStore } from "redux";
+import { Provider } from 'react-redux';
 
 class Main extends React.Component
 {
