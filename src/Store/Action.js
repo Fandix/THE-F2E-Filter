@@ -5,31 +5,48 @@ export const LocationFilter = (text) => {
     })
 };
 
-export const DateFilter = (text) => {
-    return({
-        type:"DateFilter",
-        text
-    })
-};
-
-export const CategoriesFilter = (cateType,isCheck) => {
-    let Cate = {};
-    //若不再Object中，新增cateType到物件中
-    if(!(cateType in Cate)){
-        Cate = {
-            cateType:isCheck
-        }
-    //若cateType已經存在物件中則只改變inCheck    
+let from = "",to = "";
+export const DateFilter = (name,text) => {
+    if(name === "from"){
+        from = text;
     }else{
-        Cate = {
-            cateType:isCheck
-        }
+        to = text;
     }
 
     return({
-        type:"CategoriesFilter",
-        Cate:Cate
+        type:"DateFilter",
+        from,
+        to,
     })
+};
+
+
+export const CategoriesFreeFilter = (Freename,isCheck) => {
+    if(!isCheck){
+        return({
+            type:"CategoriesFreeFilter",
+            Freename : ""
+        })
+    }
+    return({
+        type:"CategoriesFreeFilter",
+        Freename
+    })
+    
+};
+
+export const CategoriesOpenFilter = (OpenName,isCheck) => {
+    if(!isCheck){
+        return({
+            type:"CategoriesOpenFilter",
+            OpenName : ""
+        })
+    }
+    return({
+        type:"CategoriesOpenFilter",
+        OpenName
+    })
+    
 };
 
 export const inputFilter = (text) => {

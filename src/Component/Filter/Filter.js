@@ -6,7 +6,7 @@
 
 import React from "react";
 import style from "./Filter.module.scss"
-import { LocationFilter,DateFilter,CategoriesFilter } from "../../Store/Action"
+import { LocationFilter,DateFilter,CategoriesFreeFilter,CategoriesOpenFilter } from "../../Store/Action"
 import { connect } from "react-redux";
 
 class Filter extends React.Component
@@ -28,7 +28,8 @@ class Filter extends React.Component
     */
     onDateChange = (e) => {
         const value = e.target.value;
-        this.props.dispatch(DateFilter(value))
+        const name = e.target.name;
+        this.props.dispatch(DateFilter(name,value))
     }
 
     //===========================================================
@@ -39,11 +40,14 @@ class Filter extends React.Component
     onCategoriesChange = (e) => {
         const name = e.target.name;
         const value = e.target.checked;
-        
-        this.props.dispatch(CategoriesFilter(name,value))
+
+        if(name === "免費參觀"){
+            this.props.dispatch(CategoriesFreeFilter(name,value))
+            return
+        }
+        this.props.dispatch(CategoriesOpenFilter(name,value))
+       
     }
-
-
 
     render()
     {
@@ -71,11 +75,11 @@ class Filter extends React.Component
                         <div className={ style.dateWrap }>
                             <div className={ style.date }>
                                 <label>from</label>
-                                <input type="date" onChange={this.onDateChange}/>
+                                <input type="date" name="from" onChange={this.onDateChange}/>
                             </div>
                             <div className={ style.date }>
                                 <label>to</label>
-                                <input type="date" onChange={this.onDateChange}/>
+                                <input type="date" name="to" onChange={this.onDateChange}/>
                             </div>
                         </div>
                     </div>
@@ -87,19 +91,13 @@ class Filter extends React.Component
                         <div className={ style.check }>
                             {/*=======================*/}
                             <label>
-                                <input type="checkbox" id="checkbox" name="All" onClick = {this.onCategoriesChange}/>
-                                <span className={ style.checkbox }></span>
-                                All
-                            </label>
-                            {/*=======================*/}
-                            <label>
-                                <input type="checkbox" id="checkbox" name="free" onClick = {this.onCategoriesChange}/>
+                                <input type="checkbox" id="checkbox" name="免費參觀" onClick = {this.onCategoriesChange}/>
                                 <span className={ style.checkbox }></span>
                                 免費參觀
                             </label>
                             {/*=======================*/}
                             <label>
-                                <input type="checkbox" id="checkbox" name="allDayOpen" onClick = {this.onCategoriesChange}/>
+                                <input type="checkbox" id="checkbox" name="全天候開放" onClick = {this.onCategoriesChange}/>
                                 <span className={ style.checkbox }></span>
                                 全天候開放
                             </label>
@@ -112,4 +110,4 @@ class Filter extends React.Component
     }
 }
 
-export default connect((state)=>{console.log(state)})(Filter)
+export default connect()(Filter)

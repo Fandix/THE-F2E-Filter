@@ -24,3 +24,13 @@
         2. New Reducers function
         3. connect Filter.js and Store
 */
+
+//====================================================
+
+/*
+    Date : 2020/05/18
+    Update : 
+        1. Finish Redux between Filter and FilterBar ,but if click cancel button in Categories Component
+           Filter Compoent wouldn't change state.
+        2. Because state will all change,oder of Categories item is fixed
+*/

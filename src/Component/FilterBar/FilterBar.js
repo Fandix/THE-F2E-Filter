@@ -12,6 +12,9 @@ class FilterBar extends React.Component
 {
     render()
     {
+        let count = 0
+        const FilterUI = this.props.ShowFilter;
+
         return(
             <div className={ style.wrap }>
                 <div className={ style.box }>
@@ -19,9 +22,17 @@ class FilterBar extends React.Component
                         Showing <div className={ style.searchCount }>15</div> results by...
                     </div>
                     <div className={ style.categories }>
-                        <Categories 
-                            value="全天候開放"
-                        />
+                        {
+                            FilterUI.map(Filter => {
+                                return(
+                                    <Categories 
+                                        value = {Filter} 
+                                        key={count++} 
+                                        onClick = {()=> this.props.onClick(Filter)}
+                                    />
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>

@@ -12,14 +12,22 @@ const DataFilter = (state={
         case "DateFilter":
             return(
                 Object.assign({},state,{
-                    DateFilterFilterText : action.text
+                    DateFilterFilterTextFrom : action.from,
+                    DateFilterFilterTextTo : action.to,
                 })
             )
 
-        case "CategoriesFilter":
+        case "CategoriesFreeFilter":
             return(
                 Object.assign({},state,{
-                    CategoriesFilter:action.Cate,
+                    CategoriesFreeFilter:action.Freename
+                })
+            )
+
+        case "CategoriesOpenFilter":
+            return(
+                Object.assign({},state,{
+                    CategoriesOpenFilter:action.OpenName
                 })
             )
 

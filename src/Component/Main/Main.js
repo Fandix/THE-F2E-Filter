@@ -11,6 +11,7 @@ import Filter from "../Filter/Filter";
 import FilterBar from "../FilterBar/FilterBar"
 import { createStore } from "redux";
 import { Provider } from 'react-redux';
+import ShowFilter from "../../Containet Component/ShowFilter"
 
 class Main extends React.Component
 {
@@ -25,7 +26,7 @@ class Main extends React.Component
                     </div>
                     {/******* Data List ********/}
                     <div className={ style.datalist }>
-                        <FilterBar />
+                        <ShowFilter />
                     </div>
                 </div>
             </div>
