@@ -11,6 +11,35 @@ import { connect } from "react-redux";
 
 class Filter extends React.Component
 {
+    state = {
+        免費參觀:false,
+        全天候開放:false,
+        Location : "全部"
+    }
+
+    componentDidUpdate(prevProps){
+        if(prevProps.CategoriesFreeFilter !== this.props.CategoriesFreeFilter && prevProps.CategoriesFreeFilter !== undefined){
+            if(!this.props.CategoriesFreeFilter){
+                this.setState({
+                    免費參觀:false
+                })
+            }
+        }else if(prevProps.CategoriesOpenFilter !== this.props.CategoriesOpenFilter && prevProps.CategoriesOpenFilter !== undefined){
+            if(!this.props.CategoriesOpenFilter){
+                this.setState({
+                    全天候開放:false
+                })
+            }
+        }else if(prevProps.LocationFilterText !== this.props.LocationFilterText){
+            if(this.props.LocationFilterText === "全部"){
+                this.setState({
+                    Location : "全部"
+                })
+            }
+        }
+    }
+
+    //==========================================================
 
     /*
         Date : 2020/05/17
@@ -18,6 +47,9 @@ class Filter extends React.Component
     */
     onLocationChange = (e) => {
         const value = e.target.value;
+        this.setState({
+            Location:value
+        })
         this.props.dispatch(LocationFilter(value))
     }
 
@@ -29,6 +61,7 @@ class Filter extends React.Component
     onDateChange = (e) => {
         const value = e.target.value;
         const name = e.target.name;
+
         this.props.dispatch(DateFilter(name,value))
     }
 
@@ -40,6 +73,9 @@ class Filter extends React.Component
     onCategoriesChange = (e) => {
         const name = e.target.name;
         const value = e.target.checked;
+        this.setState({
+            [name]:value
+        })
 
         if(name === "免費參觀"){
             this.props.dispatch(CategoriesFreeFilter(name,value))
@@ -57,7 +93,7 @@ class Filter extends React.Component
                 <div className={ style.location }>
                     <div className={ style.box }>
                         <p>Location</p>
-                        <select onChange={this.onLocationChange}>
+                        <select onChange={this.onLocationChange} value={this.state.Location}>
                             <option>全部</option>
                             <option>三民區</option>
                             <option>大樹區</option>
@@ -91,13 +127,13 @@ class Filter extends React.Component
                         <div className={ style.check }>
                             {/*=======================*/}
                             <label>
-                                <input type="checkbox" id="checkbox" name="免費參觀" onClick = {this.onCategoriesChange}/>
+                                <input type="checkbox" id="checkbox" name="免費參觀" onClick = {this.onCategoriesChange} checked={this.state.免費參觀}/>
                                 <span className={ style.checkbox }></span>
                                 免費參觀
                             </label>
                             {/*=======================*/}
                             <label>
-                                <input type="checkbox" id="checkbox" name="全天候開放" onClick = {this.onCategoriesChange}/>
+                                <input type="checkbox" id="checkbox" name="全天候開放" onClick = {this.onCategoriesChange} checked={this.state.全天候開放}/>
                                 <span className={ style.checkbox }></span>
                                 全天候開放
                             </label>
@@ -110,4 +146,8 @@ class Filter extends React.Component
     }
 }
 
-export default connect()(Filter)
+const mapStateToProps = (state) => {
+   return state;
+};
+
+export default connect(mapStateToProps)(Filter)

@@ -9,7 +9,6 @@ import style from "./Categories.module.scss"
 
 const Categories = (props) => {
     const Value = props.value
-    console.log(props)
     return(
         <div className={ style.wrap }>
             <div className={ style.box }>

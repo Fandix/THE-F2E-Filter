@@ -29,7 +29,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       onClick: (Name) => {
-          console.log(Name)
           switch (Name) {
             case "免費參觀":
                 dispatch(CategoriesFreeFilter(Name,false))
