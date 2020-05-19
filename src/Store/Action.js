@@ -13,22 +13,10 @@ export const DateFilter = (text) => {
 };
 
 export const CategoriesFilter = (cateType,isCheck) => {
-    let Cate = {};
-    //若不再Object中，新增cateType到物件中
-    if(!(cateType in Cate)){
-        Cate = {
-            cateType:isCheck
-        }
-    //若cateType已經存在物件中則只改變inCheck    
-    }else{
-        Cate = {
-            cateType:isCheck
-        }
-    }
-
+    console.log(cateType,isCheck)
     return({
-        type:"CategoriesFilter",
-        Cate:Cate
+        type: "CategoriesFilter",
+        
     })
 };
 
