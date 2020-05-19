@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import FilterBar from "../Component/FilterBar/FilterBar";
 import { LocationFilter,CategoriesFreeFilter,CategoriesOpenFilter } from "../Store/Action"
 
-const FilterVisible = (state = []) => {
+const FilterVisible = (state) => {
     const ShowFilter = [];
 
     for (let prop in state) {
@@ -21,6 +21,7 @@ const FilterVisible = (state = []) => {
 };
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
         ShowFilter : FilterVisible(state)
     }

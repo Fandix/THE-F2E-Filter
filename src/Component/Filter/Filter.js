@@ -7,7 +7,6 @@
 import React from "react";
 import style from "./Filter.module.scss"
 import { LocationFilter,DateFilter,CategoriesFreeFilter,CategoriesOpenFilter } from "../../Store/Action"
-import { connect } from "react-redux";
 
 class Filter extends React.Component
 {
@@ -17,25 +16,23 @@ class Filter extends React.Component
         Location : "全部"
     }
 
-    componentDidUpdate(prevProps){
-        if(prevProps.CategoriesFreeFilter !== this.props.CategoriesFreeFilter && prevProps.CategoriesFreeFilter !== undefined){
-            if(!this.props.CategoriesFreeFilter){
+    componentDidUpdate(prevProps,prevState){
+        const Btn = this.props.Btn;
+        if(prevProps.Btn !== this.props.Btn){
+            if(!Btn.includes("免費參觀")){
                 this.setState({
-                    免費參觀:false
+                    免費參觀 : false
                 })
-            }
-        }else if(prevProps.CategoriesOpenFilter !== this.props.CategoriesOpenFilter && prevProps.CategoriesOpenFilter !== undefined){
-            if(!this.props.CategoriesOpenFilter){
+            }else if(!Btn.includes("全天候開放")){
                 this.setState({
-                    全天候開放:false
+                    全天候開放 : false
                 })
-            }
-        }else if(prevProps.LocationFilterText !== this.props.LocationFilterText){
-            if(this.props.LocationFilterText === "全部"){
+            }else if(Btn.includes("全部")){
                 this.setState({
                     Location : "全部"
                 })
             }
+            
         }
     }
 
@@ -146,8 +143,4 @@ class Filter extends React.Component
     }
 }
 
-const mapStateToProps = (state) => {
-   return state;
-};
-
-export default connect(mapStateToProps)(Filter)
+export default Filter

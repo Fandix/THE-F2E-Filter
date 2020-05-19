@@ -34,3 +34,15 @@
            Filter Compoent wouldn't change state.
         2. Because state will all change,oder of Categories item is fixed
 */
+
+//====================================================
+
+/*
+    Date : 2020/05/19
+    Update : 
+        1. Fix Problem of Categories item wouldn't change
+
+    Problem : 
+        1. Because ShowFilter.js will transmission Array of ShowFilter to Categroies.js,
+           Categroies will show previous Filter again.
+*/

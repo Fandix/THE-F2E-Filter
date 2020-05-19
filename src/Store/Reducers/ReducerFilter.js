@@ -17,6 +17,7 @@ const DataFilter = (state={
                 })
             )
 
+        //新增FreeFilter物件
         case "CategoriesFreeFilter":
             return(
                 Object.assign({},state,{
@@ -24,6 +25,14 @@ const DataFilter = (state={
                 })
             )
 
+        //移除FreeFilter物件
+        case "DeleteCategoriesFreeFilter":
+            delete state.CategoriesFreeFilter
+            return(
+                Object.assign({},state)
+            )
+
+        //新增OpenFilter物件
         case "CategoriesOpenFilter":
             return(
                 Object.assign({},state,{
@@ -31,13 +40,19 @@ const DataFilter = (state={
                 })
             )
 
+        case "DeleteCategoriesOpenFilter":
+            delete state.CategoriesOpenFilter;
+            return(
+                Object.assign({},state)
+            )  
+
         case "InputFilter":
             return(
                 Object.assign({},state,{
                     InputFilter:action.text,
                 })
             )
-        
+
         default:
             return state;
     }

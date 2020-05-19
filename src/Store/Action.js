@@ -23,8 +23,7 @@ export const DateFilter = (name,text) => {
 export const CategoriesFreeFilter = (Freename,isCheck) => {
     if(!isCheck){
         return({
-            type:"CategoriesFreeFilter",
-            Freename : ""
+            type:"DeleteCategoriesFreeFilter",
         })
     }
     return({
@@ -37,8 +36,7 @@ export const CategoriesFreeFilter = (Freename,isCheck) => {
 export const CategoriesOpenFilter = (OpenName,isCheck) => {
     if(!isCheck){
         return({
-            type:"CategoriesOpenFilter",
-            OpenName : ""
+            type:"DeleteCategoriesOpenFilter",
         })
     }
     return({

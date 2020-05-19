@@ -7,10 +7,7 @@
 
 import React from "react";
 import style from "./Main.module.scss";
-import Filter from "../Filter/Filter";
-import FilterBar from "../FilterBar/FilterBar"
-import { createStore } from "redux";
-import { Provider } from 'react-redux';
+import FilterBtn from "../../Containet Component/FilterBtn"
 import ShowFilter from "../../Containet Component/ShowFilter"
 
 class Main extends React.Component
@@ -22,7 +19,8 @@ class Main extends React.Component
                 <div className={ style.box }>
                     {/******* Filter ********/}
                     <div className={ style.filter }>
-                        <Filter />
+                        <FilterBtn />
+                        {/* <Filter /> */}
                     </div>
                     {/******* Data List ********/}
                     <div className={ style.datalist }>
