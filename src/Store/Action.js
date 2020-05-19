@@ -5,19 +5,47 @@ export const LocationFilter = (text) => {
     })
 };
 
-export const DateFilter = (text) => {
+let from = "",to = "";
+export const DateFilter = (name,text) => {
+    if(name === "from"){
+        from = text;
+    }else{
+        to = text;
+    }
+
     return({
         type:"DateFilter",
-        text
+        from,
+        to,
     })
 };
 
-export const CategoriesFilter = (cateType,isCheck) => {
-    console.log(cateType,isCheck)
+export const CategoriesFreeFilter = (Freename,isCheck) => {
+    if(!isCheck){
+        return({
+            type:"CategoriesFreeFilter",
+            Freename : ""
+        })
+    }
     return({
-        type: "CategoriesFilter",
-        
+        type:"CategoriesFreeFilter",
+        Freename
     })
+    
+};
+
+export const CategoriesOpenFilter = (OpenName,isCheck) => {
+    if(!isCheck){
+        return({
+            type:"CategoriesOpenFilter",
+            OpenName : ""
+        })
+    }
+    return({
+        type:"CategoriesOpenFilter",
+        OpenName
+    })
+    
 };
 
 export const inputFilter = (text) => {
