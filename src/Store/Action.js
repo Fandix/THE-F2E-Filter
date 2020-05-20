@@ -24,6 +24,7 @@ export const CategoriesFreeFilter = (Freename,isCheck) => {
     if(!isCheck){
         return({
             type:"DeleteCategoriesFreeFilter",
+            Freename
         })
     }
     return({
@@ -37,6 +38,7 @@ export const CategoriesOpenFilter = (OpenName,isCheck) => {
     if(!isCheck){
         return({
             type:"DeleteCategoriesOpenFilter",
+            OpenName
         })
     }
     return({

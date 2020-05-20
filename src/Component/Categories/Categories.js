@@ -7,19 +7,23 @@
 import React from "react";
 import style from "./Categories.module.scss"
 
-const Categories = (props) => {
-    const Value = props.value
-    return(
-        <div className={ style.wrap }>
-            <div className={ style.box }>
-                <p>{ Value }</p>
-                <div className={ style.cancel }>
-                    <input type="checkbox" id="cate" onClick={props.onClick}/>
-                    <label htmlFor="cate" className={ style.categ }></label>
+class Categories extends React.Component
+{
+    render()
+    {
+        const Value = this.props.value;
+        return(
+            <div className={ style.wrap }>
+                <div className={ style.box }>
+                    <p>{ Value }</p>
+                    <div className={ style.cancel }>
+                        <input type="checkbox" id="cate" onClick={this.props.onClick}/>
+                        <label htmlFor="cate" className={ style.categ }></label>
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default Categories

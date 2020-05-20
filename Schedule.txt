@@ -46,3 +46,16 @@
         1. Because ShowFilter.js will transmission Array of ShowFilter to Categroies.js,
            Categroies will show previous Filter again.
 */
+
+//====================================================
+
+/*
+    Date : 2020/05/20
+    Update : 
+        1. Transform the Property passed to FilterBar.js from objects to arrays.
+        2. Fix the issue that Categories item can't be changed.
+
+    Problem : 
+        1. Categories Callback function always return name of first one in Items to ShowFilter.js
+
+*/

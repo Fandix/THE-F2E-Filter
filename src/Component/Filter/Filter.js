@@ -17,23 +17,23 @@ class Filter extends React.Component
     }
 
     componentDidUpdate(prevProps,prevState){
-        const Btn = this.props.Btn;
-        if(prevProps.Btn !== this.props.Btn){
-            if(!Btn.includes("免費參觀")){
-                this.setState({
-                    免費參觀 : false
-                })
-            }else if(!Btn.includes("全天候開放")){
-                this.setState({
-                    全天候開放 : false
-                })
-            }else if(Btn.includes("全部")){
-                this.setState({
-                    Location : "全部"
-                })
-            }
+        // const Btn = this.props.Btn;
+        // if(prevProps.Btn !== this.props.Btn){
+        //     if(!Btn.includes("免費參觀")){
+        //         this.setState({
+        //             免費參觀 : false
+        //         })
+        //     }else if(!Btn.includes("全天候開放")){
+        //         this.setState({
+        //             全天候開放 : false
+        //         })
+        //     }else if(Btn.includes("全部")){
+        //         this.setState({
+        //             Location : "全部"
+        //         })
+        //     }
             
-        }
+        // }
     }
 
     //==========================================================

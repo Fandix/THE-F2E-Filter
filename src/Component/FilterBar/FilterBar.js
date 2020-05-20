@@ -10,11 +10,31 @@ import Categories from "../Categories/Categories"
 
 class FilterBar extends React.Component
 {
+    FilterItem = () => {
+        // const Items = this.props.ShowFilter;
+        const Items = ["a","b"]
+        const ShowFilter = [];
+        let key = 0;
+
+        if(Items !== undefined){
+            Items.forEach(item => {
+                ShowFilter.push(
+                    <Categories 
+                        value = {item} 
+                        key={key++} 
+                        onClick = {() => this.props.onCancelClick(item)}
+                    />
+                )
+            });
+    
+            return ShowFilter;
+        }
+    }
+
+
     render()
     {
-        let count = 0
-        const FilterUI = this.props.ShowFilter;
-
+        console.log(this.props.onCancelClick)
         return(
             <div className={ style.wrap }>
                 <div className={ style.box }>
@@ -22,17 +42,7 @@ class FilterBar extends React.Component
                         Showing <div className={ style.searchCount }>15</div> results by...
                     </div>
                     <div className={ style.categories }>
-                        {
-                            FilterUI.map(Filter => {
-                                return(
-                                    <Categories 
-                                        value = {Filter} 
-                                        key={count++} 
-                                        onClick = {()=> this.props.onClick(Filter)}
-                                    />
-                                )
-                            })
-                        }
+                        {this.FilterItem()}
                     </div>
                 </div>
             </div>

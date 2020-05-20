@@ -8,41 +8,45 @@ import { connect } from "react-redux";
 import FilterBar from "../Component/FilterBar/FilterBar";
 import { LocationFilter,CategoriesFreeFilter,CategoriesOpenFilter } from "../Store/Action"
 
-const FilterVisible = (state) => {
-    const ShowFilter = [];
 
-    for (let prop in state) {
-        if(state[prop] === "" || state[prop] === "全部"){
-            continue;
-        }
-        ShowFilter.push(state[prop])
-    }
-    return ShowFilter;
+const FilterVisible = (FilterItem) => {
+    let LastFilterItem  = [];
+    let count = 0;
+    if(FilterItem !== undefined){
+        FilterItem.forEach(item => {
+            if(item !== "全部"){
+                LastFilterItem[count++] = item;
+            }
+        })
+
+        return LastFilterItem;
+    }  
 };
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
-        ShowFilter : FilterVisible(state)
+        ShowFilter : FilterVisible(state.FilterItem)
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      onClick: (Name) => {
-          switch (Name) {
-            case "免費參觀":
-                dispatch(CategoriesFreeFilter(Name,false))
-                break;
 
-            case "全天候開放":
-                dispatch(CategoriesOpenFilter(Name,false))
-                break;
+      onCancelClick: (id) => {
+          console.log(id)
+        //   switch (Name) {
+        //     case "免費參觀":
+        //         dispatch(CategoriesFreeFilter(Name,false))
+        //         break;
+
+        //     case "全天候開放":
+        //         dispatch(CategoriesOpenFilter(Name,false))
+        //         break;
           
-            default:
-                dispatch(LocationFilter("全部"))
-                break;
-          }
+        //     default:
+        //         dispatch(LocationFilter("全部"))
+        //         break;
+        //   }
       }
     }
 };
