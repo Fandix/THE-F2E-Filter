@@ -7,15 +7,17 @@ const DataFilter = (state={},action) => {
         case "LocationFilter":
             if(lastLocaItem !== ""){
                 index = FilterItem.findIndex(item => item === lastLocaItem);
-                FilterItem.splice(index,1)
+                FilterItem.splice(index,1)   
             }
 
             FilterItem.push(action.text);
             lastLocaItem = action.text;
-            
             return(
                 Object.assign({},state,{
-                    FilterItem : FilterItem
+                    FilterItem,
+                    FilterShowState : Object.assign({},state.FilterShowState,{
+                        LocationShowState:action.text
+                    })
                 })
             )
 
@@ -32,7 +34,10 @@ const DataFilter = (state={},action) => {
             FilterItem.push(action.Freename);
             return(
                 Object.assign({},state,{
-                    FilterItem:FilterItem
+                    FilterItem,
+                    FilterShowState : Object.assign({},state.FilterShowState,{
+                        FreeShowState:action.isCheck
+                    })
                 })
             )
 
@@ -42,16 +47,22 @@ const DataFilter = (state={},action) => {
             FilterItem.splice(index,1);
             return(
                 Object.assign({},state,{
-                    FilterItem:FilterItem
+                    FilterItem,
+                    FilterShowState : Object.assign({},state.FilterShowState,{
+                        FreeShowState:action.isCheck
+                    })
                 })
             )
 
         //新增OpenFilter物件
         case "CategoriesOpenFilter":
-            FilterItem.push(action.OpenName)
+            FilterItem.push(action.OpenName);
             return(
                 Object.assign({},state,{
-                    FilterItem:FilterItem
+                    FilterItem,
+                    FilterShowState : Object.assign({},state.FilterShowState,{
+                        OpenShowState:action.isCheck
+                    })
                 })
             )
 
@@ -61,7 +72,10 @@ const DataFilter = (state={},action) => {
             FilterItem.splice(index,1);
             return(
                 Object.assign({},state,{
-                    FilterItem:FilterItem
+                    FilterItem,
+                    FilterShowState : Object.assign({},state.FilterShowState,{
+                        OpenShowState:action.isCheck
+                    })
                 })
             )  
 

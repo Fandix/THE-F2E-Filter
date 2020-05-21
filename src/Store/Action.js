@@ -24,12 +24,14 @@ export const CategoriesFreeFilter = (Freename,isCheck) => {
     if(!isCheck){
         return({
             type:"DeleteCategoriesFreeFilter",
-            Freename
+            Freename,
+            isCheck
         })
     }
     return({
         type:"CategoriesFreeFilter",
-        Freename
+        Freename,
+        isCheck
     })
     
 };
@@ -38,12 +40,14 @@ export const CategoriesOpenFilter = (OpenName,isCheck) => {
     if(!isCheck){
         return({
             type:"DeleteCategoriesOpenFilter",
-            OpenName
+            OpenName,
+            isCheck
         })
     }
     return({
         type:"CategoriesOpenFilter",
-        OpenName
+        OpenName,
+        isCheck
     })
     
 };

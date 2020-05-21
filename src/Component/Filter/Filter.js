@@ -16,24 +16,35 @@ class Filter extends React.Component
         Location : "全部"
     }
 
+    //==========================================================
+
+    /*
+        Date : 2020/05/21
+        Discrbption : 當props發生改變時調用 -> 當FilterBtn.js回傳新的props時更改Filter State
+    */
     componentDidUpdate(prevProps,prevState){
-        // const Btn = this.props.Btn;
-        // if(prevProps.Btn !== this.props.Btn){
-        //     if(!Btn.includes("免費參觀")){
-        //         this.setState({
-        //             免費參觀 : false
-        //         })
-        //     }else if(!Btn.includes("全天候開放")){
-        //         this.setState({
-        //             全天候開放 : false
-        //         })
-        //     }else if(Btn.includes("全部")){
-        //         this.setState({
-        //             Location : "全部"
-        //         })
-        //     }
-            
-        // }
+        const Btn = this.props.Btn;
+        
+        //Step 1 : 判斷上一個props與這次傳遞的props是否不相等 => 若沒有會造成無限循環
+        if(prevProps.Btn !== this.props.Btn){
+
+            //Step 2 : 將props(Object)中所有元素進行判斷
+            for (let props in Btn) {
+                if(props === "FreeShowState" && Btn[props] === false){
+                    this.setState({
+                        免費參觀:false
+                    })
+                }else if(props === "OpenShowState" && Btn[props] === false){
+                    this.setState({
+                        全天候開放:false
+                    })
+                }else if(props === "LocationShowState" && Btn[props] === "全部"){
+                    this.setState({
+                        Location : "全部"
+                    })
+                }
+            }
+        }
     }
 
     //==========================================================

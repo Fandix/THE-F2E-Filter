@@ -1,6 +1,6 @@
 /*
     Date : 2020/05/18
-    Decription : 處理被選到的Filter並傳遞給子層渲染(FilterBat)
+    Decription : 處理被選到的Filter並傳遞給子層渲染(FilterBar)
     Author : Fandix Huang
 */
 
@@ -31,22 +31,14 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
-      onCancelClick: (id) => {
-          console.log(id)
-        //   switch (Name) {
-        //     case "免費參觀":
-        //         dispatch(CategoriesFreeFilter(Name,false))
-        //         break;
-
-        //     case "全天候開放":
-        //         dispatch(CategoriesOpenFilter(Name,false))
-        //         break;
-          
-        //     default:
-        //         dispatch(LocationFilter("全部"))
-        //         break;
-        //   }
+      onCancelClick: (name) => {
+        if(name === "免費參觀"){
+            dispatch(CategoriesFreeFilter(name,false))
+        }else if(name === "全天候開放"){
+            dispatch(CategoriesOpenFilter(name,false))
+        }else{
+            dispatch(LocationFilter("全部"))
+        }
       }
     }
 };

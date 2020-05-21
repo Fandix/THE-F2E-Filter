@@ -1,5 +1,6 @@
 /*
     Date : 2020/05/06
+    Update : 2020/05/21
     Decription : Categories Component(show message when filter information)
     Author : Fandix Huang
 */
@@ -17,8 +18,8 @@ class Categories extends React.Component
                 <div className={ style.box }>
                     <p>{ Value }</p>
                     <div className={ style.cancel }>
-                        <input type="checkbox" id="cate" onClick={this.props.onClick}/>
-                        <label htmlFor="cate" className={ style.categ }></label>
+                        <input type="checkbox" id={this.props.id} onClick={this.props.onClick}/>
+                        <label htmlFor={this.props.id} className={ style.categ }></label>
                     </div>
                 </div>
             </div>

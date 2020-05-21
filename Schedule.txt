@@ -59,3 +59,13 @@
         1. Categories Callback function always return name of first one in Items to ShowFilter.js
 
 */
+
+//====================================================
+
+/*
+    Date : 2020/05/21
+    Update : 
+        1. Fix the issue of callback function always return name of first one in Items.
+
+    Note : Because the id in the input of the Categories component always points to the first item, it will always return the first name in the item.
+/*

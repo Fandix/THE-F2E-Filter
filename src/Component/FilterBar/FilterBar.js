@@ -1,5 +1,6 @@
 /*
     Date : 2020/05/07
+    Update : 2020/05/21
     Decription : FilterBar Component (ResultCount,Categories )
     Author : Fandix Huang
 */
@@ -10,9 +11,14 @@ import Categories from "../Categories/Categories"
 
 class FilterBar extends React.Component
 {
+    
+    //==========================================================
+    /*
+        Date : 2020/05/21
+        Discrbption : 將被選種的Filter作為參數傳遞給子層渲染(Categories)
+    */
     FilterItem = () => {
-        // const Items = this.props.ShowFilter;
-        const Items = ["a","b"]
+        const Items = this.props.ShowFilter;
         const ShowFilter = [];
         let key = 0;
 
@@ -23,6 +29,7 @@ class FilterBar extends React.Component
                         value = {item} 
                         key={key++} 
                         onClick = {() => this.props.onCancelClick(item)}
+                        id = {key}
                     />
                 )
             });
@@ -34,7 +41,6 @@ class FilterBar extends React.Component
 
     render()
     {
-        console.log(this.props.onCancelClick)
         return(
             <div className={ style.wrap }>
                 <div className={ style.box }>
