@@ -69,3 +69,20 @@
 
     Note : Because the id in the input of the Categories component always points to the first item, it will always return the first name in the item.
 /*
+
+//====================================================
+
+/*
+    Date : 2020/05/23
+    Update : 
+        1. New function FilterVisible in ShowFilter.js
+        2. New function ShowDataVisible in ShowFilter.js
+        3. New VisibleData Container Component
+        4. New Pagination Container Component
+        5. New DataList Presentational  Component
+        6. New Data Presentational  Component
+        7. New funcion VisibleData in ReducerFilter.js and combineReducers DataFilter and VisibleData
+        8. New Action Creater PageNumber in Action.js
+        9. Change name FilterBar to DataWrap
+        10. Change axiox timeout -> 1ms to 3ms
+/*

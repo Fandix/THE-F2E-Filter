@@ -1,0 +1,40 @@
+ .pagecontainer:after {
+    content: '.';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+}
+.pagecontainer {
+    height: 42px;
+    li{
+        list-style: none;
+        float: left;
+        padding: 0px 8px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        height: 42px;
+        width: 42px;
+        text-align: center;
+        line-height: 42px;
+        font-size: 16px;
+        font-weight: 550;
+        color: #9013FE;
+    }
+}
+
+
+
+
+.activePage {
+    color: #fff !important;
+    background: #9013FE;
+    border-color: #9013FE !important;
+}
+
+
+.nomore {
+    color: #b5b5b5 !important;
+    cursor: not-allowed !important;
+}
+

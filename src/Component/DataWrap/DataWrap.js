@@ -1,15 +1,17 @@
 /*
     Date : 2020/05/07
     Update : 2020/05/21
-    Decription : FilterBar Component (ResultCount,Categories )
+    Decription : FilterBar Component (ResultCount,Categories,Data )
     Author : Fandix Huang
 */
 
 import React from "react";
-import style from "./FilterBar.module.scss"
+import style from "./DataWrap.module.scss"
 import Categories from "../Categories/Categories"
+import Pagination from "../Pagination/Pagination"
+import VisibleData from "../../Containet Component/VisibleData"
 
-class FilterBar extends React.Component
+class DataWrap extends React.Component
 {
     
     //==========================================================
@@ -41,14 +43,27 @@ class FilterBar extends React.Component
 
     render()
     {
+        let OutputData = this.props.ShowData.OutputData;
+        let ShowDataCount = this.props.ShowData.showDataCount;
+
         return(
             <div className={ style.wrap }>
                 <div className={ style.box }>
+                    {/***************** Visible Count *****************/}
                     <div className={ style.resultCount }>
-                        Showing <div className={ style.searchCount }>15</div> results by...
+                        Showing <div className={ style.searchCount }>{ShowDataCount}</div> results by...
                     </div>
+                    {/**************** Categories Items ****************/}
                     <div className={ style.categories }>
                         {this.FilterItem()}
+                    </div>
+                    {/****************** Visible Data ******************/}
+                    <div className={style.data}>
+                        <VisibleData outputData={OutputData}/>
+                    </div>
+                    {/********************** Page **********************/}
+                    <div className={style.Page}> 
+                        <Pagination totalPage={this.props.ShowData.ElememtCount}/>
                     </div>
                 </div>
             </div>
@@ -56,4 +71,4 @@ class FilterBar extends React.Component
     }
 }
 
-export default FilterBar;
+export default DataWrap;

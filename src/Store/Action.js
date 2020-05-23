@@ -1,3 +1,6 @@
+/*
+    新增Location Filter
+*/
 export const LocationFilter = (text) => {
     return({
         type:"LocationFilter",
@@ -5,29 +8,10 @@ export const LocationFilter = (text) => {
     })
 };
 
-let from = "",to = "";
-export const DateFilter = (name,text) => {
-    if(name === "from"){
-        from = text;
-    }else{
-        to = text;
-    }
-
-    return({
-        type:"DateFilter",
-        from,
-        to,
-    })
-};
-
+/*
+    新增Categories Filter (免費參觀)
+*/
 export const CategoriesFreeFilter = (Freename,isCheck) => {
-    if(!isCheck){
-        return({
-            type:"DeleteCategoriesFreeFilter",
-            Freename,
-            isCheck
-        })
-    }
     return({
         type:"CategoriesFreeFilter",
         Freename,
@@ -36,14 +20,10 @@ export const CategoriesFreeFilter = (Freename,isCheck) => {
     
 };
 
+/*
+    新增Categories Filter (全天候開放)
+*/
 export const CategoriesOpenFilter = (OpenName,isCheck) => {
-    if(!isCheck){
-        return({
-            type:"DeleteCategoriesOpenFilter",
-            OpenName,
-            isCheck
-        })
-    }
     return({
         type:"CategoriesOpenFilter",
         OpenName,
@@ -52,10 +32,23 @@ export const CategoriesOpenFilter = (OpenName,isCheck) => {
     
 };
 
+/*
+    新增搜索欄Filter
+*/
 export const inputFilter = (text) => {
     return({
         type:"InputFilter",
         text
+    })
+};
+
+/*
+    新增當前頁碼
+*/
+export const PageNumber = (Page) => {
+    return({
+        type : "PAGE_NUMBER",
+        Page
     })
 };
 

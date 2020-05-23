@@ -6,7 +6,9 @@
 
 import React from "react";
 import style from "./Filter.module.scss"
-import { LocationFilter,DateFilter,CategoriesFreeFilter,CategoriesOpenFilter } from "../../Store/Action"
+import { LocationFilter,
+        CategoriesFreeFilter,CategoriesOpenFilter 
+} from "../../Store/Action"
 
 class Filter extends React.Component
 {
@@ -64,18 +66,6 @@ class Filter extends React.Component
     //===========================================================
     /*
         Date : 2020/05/17
-        Discrbption : 當Location Filter發生改變時觸發，傳遞改變的內容給store
-    */
-    onDateChange = (e) => {
-        const value = e.target.value;
-        const name = e.target.name;
-
-        this.props.dispatch(DateFilter(name,value))
-    }
-
-    //===========================================================
-    /*
-        Date : 2020/05/17
         Discrbption : 當Categories Filter發生改變時觸發，傳遞改變的內容給store
     */
     onCategoriesChange = (e) => {
@@ -87,7 +77,7 @@ class Filter extends React.Component
 
         if(name === "免費參觀"){
             this.props.dispatch(CategoriesFreeFilter(name,value))
-            return
+            return;
         }
         this.props.dispatch(CategoriesOpenFilter(name,value))
        
@@ -110,22 +100,6 @@ class Filter extends React.Component
                             <option>小港區</option>
                             <option>內門區</option>
                         </select>
-                    </div>
-                </div>
-                {/******** Data ********/}
-                <div className={ style.data }>
-                    <div className={ style.box }>
-                        <p>Date</p>
-                        <div className={ style.dateWrap }>
-                            <div className={ style.date }>
-                                <label>from</label>
-                                <input type="date" name="from" onChange={this.onDateChange}/>
-                            </div>
-                            <div className={ style.date }>
-                                <label>to</label>
-                                <input type="date" name="to" onChange={this.onDateChange}/>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 {/******** Categories ********/}

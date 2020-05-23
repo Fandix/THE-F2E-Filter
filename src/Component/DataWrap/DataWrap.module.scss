@@ -19,5 +19,15 @@
             display: flex;
             margin-top: 10px;
         }
+
+        .data{
+            width: 100%;
+        }
+
+        .Page{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
     }
 }

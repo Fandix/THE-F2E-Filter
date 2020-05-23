@@ -1,88 +1,94 @@
-const FilterItem = [];
+import { combineReducers } from "redux";
+
+const FilterItem = [];  //For ShowFilter Item (Only Location and Categories)
 let index = 0;
 let lastLocaItem = "";
 
-const DataFilter = (state={},action) => {
+let initState = {}
+
+//==================================================================================== Location
+
+const DataFilter = (state={
+    FilterData : Object.assign({},initState.FilterData,{
+        LocationData:"全部"
+    })
+},action) => {
     switch (action.type) {
         case "LocationFilter":
             if(lastLocaItem !== ""){
                 index = FilterItem.findIndex(item => item === lastLocaItem);
-                FilterItem.splice(index,1)   
+                FilterItem.splice(index,1);   
             }
 
             FilterItem.push(action.text);
+
             lastLocaItem = action.text;
             return(
                 Object.assign({},state,{
                     FilterItem,
                     FilterShowState : Object.assign({},state.FilterShowState,{
                         LocationShowState:action.text
+                    }),
+                    FilterData : Object.assign({},state.FilterData,{
+                        LocationData:action.text
                     })
                 })
             )
-
-        case "DateFilter":
-            return(
-                Object.assign({},state,{
-                    DateFilterFilterTextFrom : action.from,
-                    DateFilterFilterTextTo : action.to,
-                })
-            )
+   
+//====================================================================================  Categroies Free
 
         //新增FreeFilter物件
         case "CategoriesFreeFilter":
-            FilterItem.push(action.Freename);
+                if(action.isCheck === false){
+                    index = FilterItem.findIndex(item => item === action.Freename);
+                    FilterItem.splice(index,1);
+                }else{
+                    FilterItem.push(action.Freename);
+                }
+
             return(
                 Object.assign({},state,{
                     FilterItem,
                     FilterShowState : Object.assign({},state.FilterShowState,{
                         FreeShowState:action.isCheck
+                    }),
+                    FilterData : Object.assign({},state.FilterData,{
+                        FreeDataState:action.isCheck
                     })
                 })
             )
 
-        //移除FreeFilter物件
-        case "DeleteCategoriesFreeFilter":
-            index = FilterItem.findIndex(item => item === action.Freename);
-            FilterItem.splice(index,1);
-            return(
-                Object.assign({},state,{
-                    FilterItem,
-                    FilterShowState : Object.assign({},state.FilterShowState,{
-                        FreeShowState:action.isCheck
-                    })
-                })
-            )
+//==================================================================================== Categroies Open
 
         //新增OpenFilter物件
         case "CategoriesOpenFilter":
-            FilterItem.push(action.OpenName);
+            if(action.isCheck === false){
+                index = FilterItem.findIndex(item => item === action.OpenName);
+                FilterItem.splice(index,1);
+            }else{
+                FilterItem.push(action.OpenName);
+            }
+
             return(
                 Object.assign({},state,{
                     FilterItem,
                     FilterShowState : Object.assign({},state.FilterShowState,{
                         OpenShowState:action.isCheck
+                    }),
+                    FilterData : Object.assign({},state.FilterData,{
+                        OpenDataState:action.isCheck
                     })
                 })
             )
 
-        //移除OpenFilter物件
-        case "DeleteCategoriesOpenFilter":
-            index = FilterItem.findIndex(item => item === action.OpenName);
-            FilterItem.splice(index,1);
-            return(
-                Object.assign({},state,{
-                    FilterItem,
-                    FilterShowState : Object.assign({},state.FilterShowState,{
-                        OpenShowState:action.isCheck
-                    })
-                })
-            )  
+//==================================================================================== Input
 
         case "InputFilter":
             return(
                 Object.assign({},state,{
-                    InputFilter:action.text,
+                    FilterData : Object.assign({},state.FilterData,{
+                        InputData:action.text
+                    })
                 })
             )
 
@@ -91,4 +97,24 @@ const DataFilter = (state={},action) => {
     }
 };
 
-export default DataFilter;
+const VisibleData = (state = {CurrentPage:1},action) => {
+    switch (action.type) {
+        case "PAGE_NUMBER":
+            return(
+                Object.assign({},state,{
+                    CurrentPage:action.Page
+                })
+            )
+            
+        default:
+            return state;
+    }
+
+};
+
+const reducers = combineReducers({
+    DataFilter,
+    VisibleData
+})
+
+export default reducers;
