@@ -25,6 +25,7 @@ class Filter extends React.Component
         Discrbption : 當props發生改變時調用 -> 當FilterBtn.js回傳新的props時更改Filter State
     */
     componentDidUpdate(prevProps,prevState){
+        console.log(this.props)
         const Btn = this.props.Btn;
         
         //Step 1 : 判斷上一個props與這次傳遞的props是否不相等 => 若沒有會造成無限循環
