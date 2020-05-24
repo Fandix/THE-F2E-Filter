@@ -6,7 +6,7 @@
 
 import { connect } from "react-redux";
 import DataWrap from "../Component/DataWrap/DataWrap";
-import { LocationFilter,CategoriesFreeFilter,CategoriesOpenFilter } from "../Store/Action"
+import { LocationFilter,CategoriesFreeFilter,CategoriesOpenFilter,PageNumber } from "../Store/Action"
 
 //==========================================================
 /*
@@ -136,11 +136,14 @@ const mapDispatchToProps = (dispatch) => {
     return {
       onCancelClick: (name) => {
         if(name === "免費參觀"){
-            dispatch(CategoriesFreeFilter(name,false))
+            dispatch(CategoriesFreeFilter(name,false));
+            dispatch(PageNumber(1));
         }else if(name === "全天候開放"){
-            dispatch(CategoriesOpenFilter(name,false))
+            dispatch(CategoriesOpenFilter(name,false));
+            dispatch(PageNumber(1));
         }else{
-            dispatch(LocationFilter("全部"))
+            dispatch(LocationFilter("全部"));
+            dispatch(PageNumber(1));
         }
       }
     }

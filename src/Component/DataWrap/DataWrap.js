@@ -6,10 +6,10 @@
 */
 
 import React from "react";
-import style from "./DataWrap.module.scss"
-import Categories from "../Categories/Categories"
-import Pagination from "../Pagination/Pagination"
-import VisibleData from "../../Containet Component/VisibleData"
+import style from "./DataWrap.module.scss";
+import Categories from "../Categories/Categories";
+import VisiblePage from "../../Containet Component/VisiblePage";
+import VisibleData from "../../Containet Component/VisibleData";
 
 class DataWrap extends React.Component
 {
@@ -63,7 +63,7 @@ class DataWrap extends React.Component
                     </div>
                     {/********************** Page **********************/}
                     <div className={style.Page}> 
-                        <Pagination totalPage={this.props.ShowData.ElememtCount}/>
+                        <VisiblePage totalPage={this.props.ShowData.ElememtCount}/>
                     </div>
                 </div>
             </div>

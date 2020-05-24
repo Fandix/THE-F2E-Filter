@@ -5,9 +5,8 @@
 */
 
 import React from "react";
-import { connect } from "react-redux";
-import style from "./Pagination.module.scss"
-import { PageNumber } from "../../Store/Action"
+import style from "./Pagination.module.scss";
+import { PageNumber } from "../../Store/Action";
 
 class Pagination extends React.Component
 {
@@ -27,7 +26,8 @@ class Pagination extends React.Component
     {
         if(this.props.totalPage !== prevProps.totalPage){
             this.setState({
-                totalPage : this.props.totalPage
+                totalPage : this.props.VisiblePage.TotalPage,
+                currentPage : this.props.VisiblePage.CurrentPage,
             })
         }
     }
@@ -59,7 +59,6 @@ class Pagination extends React.Component
         })
 
         //將當前頁碼傳遞給Redux
-        console.log(PageNumber(currentPage))
         this.props.dispatch(PageNumber(currentPage))
     };
 
@@ -192,4 +191,6 @@ class Pagination extends React.Component
     }
 }
 
-export default connect()(Pagination);
+
+
+export default Pagination;

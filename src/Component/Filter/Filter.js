@@ -7,7 +7,8 @@
 import React from "react";
 import style from "./Filter.module.scss"
 import { LocationFilter,
-        CategoriesFreeFilter,CategoriesOpenFilter 
+        CategoriesFreeFilter,CategoriesOpenFilter,
+        PageNumber
 } from "../../Store/Action"
 
 class Filter extends React.Component
@@ -25,7 +26,6 @@ class Filter extends React.Component
         Discrbption : 當props發生改變時調用 -> 當FilterBtn.js回傳新的props時更改Filter State
     */
     componentDidUpdate(prevProps,prevState){
-        console.log(this.props)
         const Btn = this.props.Btn;
         
         //Step 1 : 判斷上一個props與這次傳遞的props是否不相等 => 若沒有會造成無限循環
@@ -61,7 +61,8 @@ class Filter extends React.Component
         this.setState({
             Location:value
         })
-        this.props.dispatch(LocationFilter(value))
+        this.props.dispatch(LocationFilter(value));
+        this.props.dispatch(PageNumber(1));
     }
 
     //===========================================================
@@ -77,11 +78,12 @@ class Filter extends React.Component
         })
 
         if(name === "免費參觀"){
-            this.props.dispatch(CategoriesFreeFilter(name,value))
+            this.props.dispatch(CategoriesFreeFilter(name,value));
+            this.props.dispatch(PageNumber(1));
             return;
         }
         this.props.dispatch(CategoriesOpenFilter(name,value))
-       
+        this.props.dispatch(PageNumber(1));
     }
 
     render()

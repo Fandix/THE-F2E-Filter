@@ -6,6 +6,8 @@
 
 import { connect } from "react-redux";
 import DataList from "../Component/DataList/DataList";
+import _ShowDatail from "../Component/ShowDetail/ShowDetail";
+import Detail from "../Component/Detail/Detail";
 
 const VisibleElement = (Page,Datas) => {
     let _data = Datas;
@@ -22,8 +24,20 @@ const mapStateToProps = (state,ownProps) => {
     }
 };
 
+const mapDispatchToProps = () => {
+    return{
+        ShowDetail : (data) => {
+            _ShowDatail.open({
+                component:Detail,
+                props:data
+            })
+        }
+    }
+}
+
 const VisibleData = connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(DataList);
 
 export default VisibleData;

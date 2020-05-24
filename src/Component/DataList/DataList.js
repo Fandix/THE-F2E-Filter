@@ -6,6 +6,8 @@
 
 import React from "react";
 import Data from "../Data/Data";
+import style from "./DataList.module.scss"
+import { CSSTransition,TransitionGroup } from "react-transition-group";
 
 class DataList extends React.Component
 {
@@ -34,16 +36,24 @@ class DataList extends React.Component
         let key = 0;
         return(
             <div>
-                {
-                    datas.map(data => {
-                        return(
-                            <Data 
-                                data = {data}
-                                key = {key++}
-                            />
-                        )
-                    })
-                }
+                <TransitionGroup component={null}>
+                    {
+                        datas === undefined?"":
+                        datas.map(data => {
+                            return(
+                                <CSSTransition classNames={style.fade} timeout={500} key={key}>
+                                    <div> 
+                                        <Data 
+                                            data = {data}
+                                            key = {key++}
+                                            onclick = {() => this.props.ShowDetail(data)}
+                                        />
+                                    </div>
+                                </CSSTransition>
+                            )
+                        })
+                    }
+                </TransitionGroup>
             </div>
         )
     }

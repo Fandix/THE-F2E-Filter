@@ -14,7 +14,6 @@ const FilterBtn = (FilterShowState) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         Btn:FilterBtn(state.DataFilter.FilterShowState)
     }
