@@ -43,17 +43,19 @@ class Header extends React.Component
                     </div>
                     {/************* Search *************/}
                     <div className={ style.search }>
-                        {/*========= Search icon =========*/}
-                        <div className={ style.searchIcon }>
-                            <AiOutlineSearch />
-                        </div>
-                        {/*========= Search input =========*/}
-                        <div className={ style.searchInput }>
-                            <input 
-                                placeholder="Explore your owm activities"
-                                value={this.state.value}
-                                onChange={this.handleChange}
-                            />
+                        <div className={style.rwdSearch}>
+                             {/*========= Search icon =========*/}
+                            <div className={ style.searchIcon }>
+                                <AiOutlineSearch />
+                            </div>
+                            {/*========= Search input =========*/}
+                            <div className={ style.searchInput }>
+                                <input 
+                                    placeholder="Explore your owm activities"
+                                    value={this.state.value}
+                                    onChange={this.handleChange}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

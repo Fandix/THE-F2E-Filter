@@ -1,16 +1,33 @@
 .wrap{
     width: 100%;
     .box{
-        width: 90%;
+        width: 100%;
         height: 100%;
-        margin: 0 auto;
         display: flex;
-        .filter{
-            width: 300px;
-        }
+        flex-direction: column;
+        .filter,
         .datalist{
-            width: calc(100% - 300px);
-            
+            width: 100%;
+        }
+    }
+}
+
+
+@media screen and (min-width: 960px){
+    .wrap{
+        
+        .box{
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            .filter{
+                width: 300px;
+            }
+            .datalist{
+                width: calc(100% - 300px);
+                
+            }
         }
     }
 }

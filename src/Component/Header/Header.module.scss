@@ -1,60 +1,145 @@
 //Header Wrap
 .wrap{
     width: 100%;
-    height: 92px;
-    background-color: #7828B4;
-    //Header -> Box
+    height: 118px;
     .box{
-        width: 90%;
+        width: 100%;
         height: 100%;
         margin: 0 auto;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        //Header -> Box -> Home(Title)
         .home{
-            margin-left: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #7828B4;
             a{
+                margin: 0 auto;
                 text-decoration: none;
-                font-size: 36px;
+                font-size: 24px;
                 color: #fff;
                 font-weight: 550;
-                transition: .5s;
-            }
-            :hover{
-                color: 	#bbb;
+                margin: 20px;
             }
         }
-        //Header -> Box -> Search Bar
         .search{
-            width: 400px;
-            border-bottom: 1px solid #fff;
-            margin-left: 150px;
+            width: 100%;
+            height: 65px;
+            margin: 0 auto;
+            position: relative;
+            background-color:#EBEBEB ;
             display: flex;
-            //Header -> Box -> Search Bar -> Icon
-            .searchIcon{
-                margin-right: 20px;
-                margin-bottom: 8.5px;
-                svg{
-                    width: 20px;
-                    height: 20px;
+            align-items: center;
+            .rwdSearch{
+                width: 80%;
+                height: 60%;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-bottom: 1px solid #000;
+
+                .searchIcon{
+                    margin-right: 24px;
+                    svg{
+                        width: 20px;
+                        height: 20px;
+                        color: #000;
+                    }
+                }
+                .searchInput{
+                    // width: 100%;
+                    // 
+                    display: flex;
+                    align-items: center;
+                    
+                    input{
+                        width: 232px;
+                        border: none;
+                        background-color: transparent;
+                        font-size: 20px;
+                        color: rgba(1,1,1,.8);
+                    }
+                    input:focus{
+                        outline: none;
+                    }
+                } 
+            }   
+        }  
+    }
+}
+
+
+
+
+@media screen and (min-width: 960px){
+    .wrap{
+        width: 100%;
+        height: 92px;
+        background-color: #7828B4;
+        //Header -> Box
+        .box{
+            width: 90%;
+            height: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            //Header -> Box -> Home(Title)
+            .home{
+                width: 100px;
+                margin-left: 40px;
+                a{
+                    text-decoration: none;
+                    font-size: 36px;
                     color: #fff;
+                    font-weight: 550;
+                    transition: .5s;
+                }
+                :hover{
+                    color: 	#bbb;
                 }
             }
-            //Header -> Box -> Search Bar -> Input
-            .searchInput{
-                width: 100%;
-                margin-bottom: 8.5px;
-                input{
-                    width: 232px;
-                    border: none;
-                    background-color: transparent;
-                    font-size: 20px;
-                    color: rgba(255,255,255,0.50);
+            //Header -> Box -> Search Bar
+            .search{
+                width: 400px;
+                height: 35px;
+                margin-left: 150px;
+                background-color: transparent;
+                .rwdSearch{
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    border-bottom: 1px solid #fff;
+                    //Header -> Box -> Search Bar -> Icon
+                    .searchIcon{
+                        margin-right: 20px;
+                        svg{
+                            color: #fff;
+                        }
+                    }
+                    //Header -> Box -> Search Bar -> Input
+                    .searchInput{
+                        width: 100%;
+                        margin: 14px 0 ;
+                        input{
+                            width: 232px;
+                            border: none;
+                            background-color: transparent;
+                            font-size: 20px;
+                            color: rgba(255,255,255,0.50);
+                        }
+                        input:focus{
+                            outline: none;
+                        }
+                    } 
                 }
-                input:focus{
-                    outline: none;
-                }
-            } 
+            }
         }
     }
 }
+
+
