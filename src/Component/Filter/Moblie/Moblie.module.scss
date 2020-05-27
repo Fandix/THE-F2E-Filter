@@ -1,0 +1,116 @@
+.mobWrap{
+    width: 100%;
+    height: 100%;
+    background-color: #D7D7D7;
+    .mobLocationAvtive{
+        width: 100%;
+        height: 136px;
+        background-color: #EBEBEB;
+        .mobLocBox{
+            width: 80%;
+            margin: 0 auto;
+            .mobLocAvtHead{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: 24px;
+                margin-bottom: 24px;
+                p{
+                    font-size: 20px;
+                    color: #000;
+                    font-weight: 600;
+                }
+            }
+            select{
+                width: 100%;
+                height: 40px;
+            }
+        }
+    }
+
+    .mobCateAvtive{
+        width: 100%;
+        height: 150px;
+        background-color: #EBEBEB;
+        .mobCateBox{
+            width: 80%;
+            margin: 0 auto;
+            .mobLocAvtHead{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: 24px;
+                margin-bottom: 24px;
+                p{
+                    font-size: 20px;
+                    color: #000;
+                    font-weight: 600;
+                }
+            }
+            .mobCheck{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                label{
+                    display: flex;
+                    margin-bottom: 15px;
+                    input{
+                        display: none;
+                    }
+                    .checkbox{
+                        display: block;
+                        width: 16px;
+                        height: 16px;
+                        position: relative;
+                        cursor: pointer;
+                        margin-right: 8px;
+                    }
+                    .checkbox::before{
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 16px;
+                        height: 16px;
+                        background-color: #fff;
+                    }
+                    .checkbox::after{
+    
+                    }
+    
+                    input[type=checkbox]:checked + .checkbox::before{
+                        background-color:#9013FE ;
+                    }
+                    input[type=checkbox]:checked + .checkbox::after{
+                        content: '';
+                        position: absolute;
+                        width: 5px;
+                        height: 10px;
+                        top: 0;
+                        left: 4px;
+                        border: solid #fff;
+                        border-width: 0 3px 3px 0;
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+    }
+
+    .mobLocation{
+        width: 75%;
+        margin: 0 auto;
+        height: 64px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        p{
+            font-size: 20px;
+            color: #000;
+            font-weight: 600;
+        }
+    }
+}

@@ -15,12 +15,13 @@
 
 @media screen and (min-width: 960px){
     .wrap{
-        
+        //height: 100vh;
         .box{
             width: 90%;
             margin: 0 auto;
             display: flex;
             flex-direction: row;
+            height: 100%;
             .filter{
                 width: 300px;
             }

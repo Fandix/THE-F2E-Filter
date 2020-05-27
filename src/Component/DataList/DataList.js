@@ -7,12 +7,12 @@
 import React from "react";
 import Data from "../Data/Data";
 import style from "./DataList.module.scss"
-import { CSSTransition,TransitionGroup } from "react-transition-group";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-class DataList extends React.Component
-{
+
+class DataList extends React.Component {
     state = {
-        datas:[]
+        datas: []
     }
 
     //==========================================================
@@ -20,40 +20,39 @@ class DataList extends React.Component
         Date : 2020/05/23
         Discrbption : 當props發生改變時觸發 -> 將符合頁面的datas放進state中
     */
-    componentDidUpdate(prevProps)
-    {
-        if(this.props.outputData !== prevProps.outputData){
+    componentDidUpdate(prevProps) {
+        if (this.props.outputData !== prevProps.outputData) {
             this.setState({
-                datas : this.props.VisibleData
+                datas: this.props.VisibleData
             })
         }
     }
 
 
-    render()
-    {
+    render() {
         const datas = this.state.datas
         let key = 0;
-        return(
+        return (
             <div>
                 <TransitionGroup component={null}>
                     {
-                        datas === undefined?"":
-                        datas.map(data => {
-                            return(
-                                <CSSTransition classNames={style.fade} timeout={500} key={key}>
-                                    <div> 
-                                        <Data 
-                                            data = {data}
-                                            key = {key++}
-                                            onclick = {() => this.props.ShowDetail(data)}
-                                        />
-                                    </div>
-                                </CSSTransition>
-                            )
-                        })
+                        datas === undefined ? "" :
+                            datas.map(data => {
+                                return (
+                                    <CSSTransition classNames={style} timeout={500} key={key}>
+                                        <div>
+                                            <Data
+                                                data={data}
+                                                key={key++}
+                                                onclick={() => this.props.ShowDetail(data)}
+                                            />
+                                        </div>
+                                    </CSSTransition>
+                                )
+                            })
                     }
                 </TransitionGroup>
+                
             </div>
         )
     }

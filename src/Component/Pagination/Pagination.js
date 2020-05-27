@@ -19,6 +19,32 @@ class Pagination extends React.Component
 
     //==========================================================
     /*
+        Date : 2020/05/27
+        Discrbption : 返回定部動畫
+    */
+    ScrollTop = (number = 0,time) => {
+        if(!time){
+            document.body.scrollTop = document.documentElement.scrollTop = number;
+            return number;
+        }
+
+        const spacingTime = 20;
+        let spacingInex = time / spacingTime;
+        let nowTop = document.body.scrollTop + document.documentElement.scrollTop;
+        let everTop = (number - nowTop) / spacingInex;
+
+        let scrollTimer = setInterval(() => {
+            if (spacingInex > 0) {
+                spacingInex--;
+                this.ScrollTop(nowTop += everTop);
+            } else {
+                clearInterval(scrollTimer); 
+            }
+        }, spacingTime);
+    };
+
+    //==========================================================
+    /*
         Date : 2020/05/23
         Discrbption : 當props發生改變時觸發 -> 改變totoPage數量
     */
@@ -59,7 +85,11 @@ class Pagination extends React.Component
         })
 
         //將當前頁碼傳遞給Redux
-        this.props.dispatch(PageNumber(currentPage))
+        this.props.dispatch(PageNumber(currentPage));
+
+        //回到最上層
+        //document.documentElement.scrollTop = 0;
+        this.ScrollTop(0,300);
     };
 
     //==========================================================

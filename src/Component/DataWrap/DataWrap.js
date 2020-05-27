@@ -11,9 +11,8 @@ import Categories from "../Categories/Categories";
 import VisiblePage from "../../Containet Component/VisiblePage";
 import VisibleData from "../../Containet Component/VisibleData";
 
-class DataWrap extends React.Component
-{
-    
+class DataWrap extends React.Component {
+
     //==========================================================
     /*
         Date : 2020/05/21
@@ -24,46 +23,45 @@ class DataWrap extends React.Component
         const ShowFilter = [];
         let key = 0;
 
-        if(Items !== undefined){
+        if (Items !== undefined) {
             Items.forEach(item => {
                 ShowFilter.push(
-                    <Categories 
-                        value = {item} 
-                        key={key++} 
-                        onClick = {() => this.props.onCancelClick(item)}
-                        id = {key}
+                    <Categories
+                        value={item}
+                        key={key++}
+                        onClick={() => this.props.onCancelClick(item)}
+                        id={key}
                     />
                 )
             });
-    
+
             return ShowFilter;
         }
     }
 
 
-    render()
-    {
+    render() {
         let OutputData = this.props.ShowData.OutputData;
         let ShowDataCount = this.props.ShowData.showDataCount;
 
-        return(
-            <div className={ style.wrap }>
-                <div className={ style.box }>
+        return (
+            <div className={style.wrap}>
+                <div className={style.box}>
                     {/***************** Visible Count *****************/}
-                    <div className={ style.resultCount }>
-                        Showing <div className={ style.searchCount }>{ShowDataCount}</div> results by...
+                    <div className={style.resultCount}>
+                        Showing <div className={style.searchCount}>{ShowDataCount}</div> results by...
                     </div>
                     {/**************** Categories Items ****************/}
-                    <div className={ style.categories }>
+                    <div className={style.categories}>
                         {this.FilterItem()}
                     </div>
                     {/****************** Visible Data ******************/}
                     <div className={style.data}>
-                        <VisibleData outputData={OutputData}/>
+                        <VisibleData outputData={OutputData} />
                     </div>
                     {/********************** Page **********************/}
-                    <div className={style.Page}> 
-                        <VisiblePage totalPage={this.props.ShowData.ElememtCount}/>
+                    <div className={style.Page}>
+                        <VisiblePage totalPage={this.props.ShowData.ElememtCount} />
                     </div>
                 </div>
             </div>
