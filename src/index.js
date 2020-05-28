@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App"
+import Router from "./Router";
 import { createStore } from "redux";
 import { Provider } from "react-redux"
 import reducers from "./Store/Reducers/ReducerFilter"
@@ -9,7 +9,7 @@ let store = createStore(reducers);
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Router />
     </Provider>,
     document.getElementById("root")
 );

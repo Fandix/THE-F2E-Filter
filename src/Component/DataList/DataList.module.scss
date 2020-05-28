@@ -16,41 +16,7 @@
   transition: all .6s ease-in;
 }
 
-@media screen and (min-width: 960px){
-  .scrollTop{
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    label{
-      display: flex;
-      margin-bottom: 8px;
-      input{
-          display: none;
-      }
-      .checkbox{
-          display: block;
-          width: 50px;
-          height: 50px;
-          border-radius: 100%;
-          position: relative;
-          cursor: pointer;
-          margin-right: 8px;
-          background-color:#9013FE ;
-      }
-      .checkbox::before{
-        content: "";
-        position: absolute;
-        top: 15px;
-        left: 13px;
-        width: 16px;
-        height: 16px;
-        border: solid #fff;
-        border-width: 0 10px 10px 0;
-        transform: rotate(-135deg);
-    }
-
-    }
-  }
-
-
+a{
+  text-decoration: none;
 }
+

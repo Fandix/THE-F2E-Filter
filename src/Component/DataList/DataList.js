@@ -8,7 +8,7 @@ import React from "react";
 import Data from "../Data/Data";
 import style from "./DataList.module.scss"
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-
+import { Link } from "react-router-dom"
 
 class DataList extends React.Component {
     state = {
@@ -40,19 +40,24 @@ class DataList extends React.Component {
                             datas.map(data => {
                                 return (
                                     <CSSTransition classNames={style} timeout={500} key={key}>
-                                        <div>
-                                            <Data
-                                                data={data}
-                                                key={key++}
-                                                onclick={() => this.props.ShowDetail(data)}
-                                            />
-                                        </div>
+                                        <Link to={{
+                                            pathname: `/detail/${data.Id}`,
+                                            state: {data:data}
+                                        }}>
+                                            <div>
+                                                <Data
+                                                    data={data}
+                                                    key={key++}
+                                                />
+                                            </div>
+                                        </Link>
                                     </CSSTransition>
+
                                 )
                             })
                     }
                 </TransitionGroup>
-                
+
             </div>
         )
     }

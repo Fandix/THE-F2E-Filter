@@ -1,39 +1,222 @@
-.wrap{
+.wrap {
+  width: 100%;
+  height: 100%;
+  .Header {
     width: 100%;
-    .content{
-        width: 90%;
+    height: 60px;
+    background-color: #7828b4;
+    .HeaderBox {
+      width: 90%;
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      a {
         margin: 0 auto;
-        .img{
-            img{
-                padding-top: 20px;
-                width: 100%;
-                height: 250px;
-            }
+        text-decoration: none;
+        font-size: 36px;
+        color: #fff;
+        font-weight: 550;
+        margin: 20px;
+      }
+    }
+  }
+  .contentBox {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    //margin-bottom: 60px;
+    .contentHeader {
+      width: 90%;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      .lastPage {
+        width: 90px;
+        height: 35px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 35px;
+        background-color: #7828b4;
+        margin-right: 15px;
+        border-radius: 5px;
+        a {
+          color: #fff;
+        }
+      }
+      .break {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: #eee;
+        .home {
+          min-width: 30px;
+          height: 35px;
+          font-size: 18px;
+          line-height: 35px;
+          margin-left: 7px;
+          a {
+            color: #7828b4;
+            font-weight: 600;
+          }
         }
 
-        .title{
-            font-size: 36px;
-            font-weight: 700;
-            color: #9013FE;
-            margin: 15px 0;
-        }
-        .open,
-        .add{
-            display: flex;
-            align-items: center;
-            color: #888;
-            margin-bottom: 15px;
-            svg{
-                margin-right: 10px;
-                color: #444;
-            }
+        svg {
+          width: 20px;
+          height: 20px;
+          transform: rotate(-30deg);
+          color: #aaa;
+          margin-left: -5px;
         }
 
-        .descri{
-            line-height: 1.2;
-            margin-top: 30px;
-            padding-bottom: 20px;
+        .dataName {
+          height: 35px;
+          font-size: 16px;
+          line-height: 35px;
+          color: #aaa;
+          margin-left: -7px;
         }
+      }
     }
 
+    .content {
+      width: 100%;
+      background-color: #fff;
+      .pic {
+        width: 100%;
+        img {
+          width: 100%;
+          height: 80%;
+        }
+      }
+      .text {
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        .title {
+          margin-top: 19px;
+          p {
+            font-size: 28px;
+            color: #9013fe;
+            font-weight: 900;
+          }
+        }
+
+        .opentime,
+        .address {
+          width: 100%;
+          height: 35px;
+          display: flex;
+          align-items: center;
+
+          svg {
+            width: 15px;
+            height: 15px;
+            color: #666;
+            margin-right: 7px;
+          }
+          p {
+            font-size: 16px;
+            color: #aaa;
+          }
+        }
+
+        .opentime {
+            margin-top: 8px;  
+        }
+
+        .des {
+            margin-top: 10px;
+            p {
+              font-size: 16px;
+              line-height: 1.5em;
+              padding-bottom: 10px;
+            }
+          }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .wrap {
+    .Header {
+      height: 118px;
+    }
+    .contentBox {
+      width: 50%;
+      margin: 0 auto;
+      margin-top: 20px;
+      margin-bottom: 60px;
+      .contentHeader {
+        width: 100%;
+        height: 48px;
+        .lastPage {
+          width: 150px;
+          height: 40px;
+          line-height: 40px;
+          font-size: 24px;
+        }
+        .break {
+          .home {
+            min-width: 60px;
+            font-size: 24px;
+            margin-left: 15px;
+          }
+
+          svg {
+            width: 35px;
+            height: 30px;
+            margin-left: -12px;
+          }
+
+          .dataName {
+            width: 100%;
+            font-size: 18px;
+            line-height: 35px;
+          }
+        }
+      }
+
+      .content {
+        border: 1px solid #aaa;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+        .text {
+          .title {
+            p {
+              font-size: 36px;
+            }
+          }
+
+          .opentime,
+          .address {
+            svg {
+              width: 20px;
+              height: 20px;
+            }
+            p {
+              font-size: 18px;
+            }
+          }
+
+          .opentime {
+            margin-top: 15px;
+          }
+
+          .des {
+            margin-bottom: 15px;
+            p {
+              font-size: 18px;
+              line-height: 1.5em;
+            }
+          }
+        }
+      }
+    }
+  }
 }
