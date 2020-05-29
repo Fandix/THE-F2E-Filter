@@ -34,27 +34,32 @@ class DataList extends React.Component {
         let key = 0;
         return (
             <div>
-                <TransitionGroup component={null}>
+                 <TransitionGroup component={null}>
                     {
-                        datas === undefined ? "" :
-                            datas.map(data => {
-                                return (
-                                    <CSSTransition classNames={style} timeout={500} key={key}>
-                                        <Link to={{
-                                            pathname: `/detail/${data.Id}`,
-                                            state: {data:data}
-                                        }}>
-                                            <div>
-                                                <Data
-                                                    data={data}
-                                                    key={key++}
-                                                />
-                                            </div>
-                                        </Link>
-                                    </CSSTransition>
+                        datas === undefined ? ""
+                            : datas.map(data => (
+                                    <CSSTransition classNames={style} timeout={1000} key={key}>
+                                        <div>
+                                            <Link 
+                                                to={{
+                                                    pathname: `/detail/${data.Id}`,
+                                                    state: { data: data },
+                                                }}
+                                                
+                                            >
+                                                <div>
+                                                    <Data
+                                                        data={data}
+                                                        key={key++}
+                                                    />
+                                                </div>
+                                            </Link>
+                                        </div>
+                                </CSSTransition>
+                        
+                            )
+                        )
 
-                                )
-                            })
                     }
                 </TransitionGroup>
 
