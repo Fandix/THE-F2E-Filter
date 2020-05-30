@@ -1,6 +1,6 @@
 {
   "name": "filter",
-  "homepage": "https://Fandix.github.io/The-F2E-Filter",
+  "homepage": "https://fandix.github.io/THE-F2E-Filter/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +21,7 @@
     "redux": "^4.0.5"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
