@@ -10,7 +10,7 @@ Live URL : https://the-f2-e-filter-qf2g3998p.now.sh/
 # 在此專案中使用了那些技術
 1. React.js
 2. Redux(同步)
-3.React-Router-Dom
+3. React-Router-Dom
 4. axios 非同步請求網路數據 (Get)
 5. react-media 使用react的API 達到RWD不同的Component
 6. react-transition-group 在React Component之間的轉換動畫
