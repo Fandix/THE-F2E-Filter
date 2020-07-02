@@ -5,7 +5,7 @@
 # Demo
 ![](https://ithelp.ithome.com.tw/upload/images/20200630/20124767d63EcKelZi.png)
 
-Live URL : https://the-f2-e-filter-qf2g3998p.now.sh/
+Live URL : https://the-f2-e-filter-qf2g3998p.now.sh/<br>
 設計稿 : https://hexschool.github.io/THE_F2E_Design/week2-filter/?fbclid=IwAR3bp2JmF-F6cmopDn35_sW1jmUeojsV6fAbS47F55BYouLmx5UFQO-1iVQ
 
 # 在此專案中使用了那些技術
